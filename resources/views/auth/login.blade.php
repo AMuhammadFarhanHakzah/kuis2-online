@@ -23,7 +23,8 @@
                         </a>
 
                         <h5 class="text-dark fw-bold mb-4">Sign In</h5>
-                        <form action="#">
+                        <form action="{{ route('login') }}" method="POST">
+                            @csrf
                             <div class="mb-3">
                                 <label for="email" class="mb-1">Alamat Email</label>
                                 <input type="text" name="email" class="form-control"

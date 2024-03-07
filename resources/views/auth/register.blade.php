@@ -23,7 +23,8 @@
                         </a>
 
                         <h5 class="text-dark fw-bold mb-4">Sign Up</h5>
-                        <form action="#">
+                        <form action="{{route('register')}}" method="POST">
+                            @csrf
                             <div class="mb-3">
                                 <label for="name" class="mb-1">Nama Lengkap</label>
                                 <input type="text" name="name" class="form-control" placeholder="Tulis nama kamu"
