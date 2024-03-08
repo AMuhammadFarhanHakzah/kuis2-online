@@ -24,29 +24,34 @@
                             <tbody>
                                 @foreach ($pertanyaanKuis->pertanyaan as $key => $p)
                                     <tr class="align-middle">
-                                        <td> {{++$key}} </td>
-                                        <td> {{$p->soal}} </td>
+                                        <td> {{ ++$key }} </td>
+                                        <td> {{ $p->soal }} </td>
                                         <td>
                                             <ol class="ps-3" type="A">
-                                                <li class="{{$p->correct == 'a' ? 'text-success fw-bold' : ''}}"> 
-                                                    {{$p->answer_a}}
+                                                <li class="{{ $p->correct == 'a' ? 'text-success fw-bold' : '' }}">
+                                                    {{ $p->answer_a }}
                                                 </li>
-                                                <li class="{{$p->correct == 'b' ? 'text-success fw-bold' : ''}}"> 
-                                                    {{$p->answer_b}}    
+                                                <li class="{{ $p->correct == 'b' ? 'text-success fw-bold' : '' }}">
+                                                    {{ $p->answer_b }}
                                                 </li>
-                                                <li class="{{$p->correct == 'c' ? 'text-success fw-bold' : ''}}"> 
-                                                    {{$p->answer_c}}
+                                                <li class="{{ $p->correct == 'c' ? 'text-success fw-bold' : '' }}">
+                                                    {{ $p->answer_c }}
                                                 </li>
-                                                <li class="{{$p->correct == 'd' ? 'text-success fw-bold' : ''}}"> 
-                                                    {{$p->answer_d}}
+                                                <li class="{{ $p->correct == 'd' ? 'text-success fw-bold' : '' }}">
+                                                    {{ $p->answer_d }}
                                                 </li>
                                             </ol>
                                         </td>
                                         <td>
                                             <div class="d-flex gap-2">
-                                                <button class="btn btn-sm btn-light">
-                                                    <i class="bx bx-trash"></i> Hapus
-                                                </button>
+                                                <form action="{{ route('pertanyaan.destroy', $p->id_pertanyaan) }}"
+                                                    method='POST'>
+                                                    @csrf
+                                                    @method('delete')
+                                                    <button class="btn btn-sm btn-light" type="submit" onclick="return confirm('apakah anda yakin ingin menghapus soal ini?')">
+                                                        <i class="bx bx-trash"></i> Hapus
+                                                    </button>
+                                                </form>
                                             </div>
                                         </td>
                                     </tr>
@@ -67,10 +72,10 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="{{route('pertanyaan.store')}}" method="post">
+                    <form action="{{ route('pertanyaan.store') }}" method="post">
                         @csrf
                         <div class="row">
-                            <input type="hidden" name="id_tambahKuis" value="{{$pertanyaanKuis->id_tambahKuis}}">
+                            <input type="hidden" name="id_tambahKuis" value="{{ $pertanyaanKuis->id_tambahKuis }}">
                             <div class="col-12 mb-3">
                                 <label for="question">Pertanyaan</label>
                                 <input type="text" name="soal" id="soal" class="form-control" required>

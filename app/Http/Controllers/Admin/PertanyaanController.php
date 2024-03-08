@@ -64,6 +64,8 @@ class PertanyaanController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $delete = pertanyaan::find($id);
+        $delete->delete();
+        return back();
     }
 }

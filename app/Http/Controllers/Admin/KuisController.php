@@ -51,7 +51,8 @@ class KuisController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $editKuis = tambahKuis::find($id);
+        return view('admin.dashboard.editKuis', compact('editKuis'));
     }
 
     /**
@@ -59,7 +60,10 @@ class KuisController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $editInputan = $request->all();
+        tambahKuis::find($id)->update($editInputan);
+
+        return redirect()->route('kuis.index');
     }
 
     /**
@@ -67,6 +71,8 @@ class KuisController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $deleteKuis = tambahKuis::find($id);
+        $deleteKuis->delete();
+        return back();
     }
 }

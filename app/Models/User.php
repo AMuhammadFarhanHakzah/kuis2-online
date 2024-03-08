@@ -44,4 +44,9 @@ class User extends Authenticatable
     ];
 
     protected $primaryKey = 'id_user';
+
+
+    public function jawaban() {
+        return $this->hasMany(jawaban::class, 'id_user', 'id_user');
+    }
 }
