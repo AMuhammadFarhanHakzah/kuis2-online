@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\KuisController;
+use App\Http\Controllers\Admin\PertanyaanController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -22,6 +24,10 @@ Route::get('/', function () {
 Auth::routes();
 
 
-Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware(['auth', 'isAdmin']);
+Route::get('/admin', [DashboardController::class, 'index'])->name('dashboard')->middleware(['auth', 'isAdmin']);
+Route::resource('kuis', KuisController::class)->middleware(['auth', 'isAdmin']);
+Route::resource('pertanyaan', PertanyaanController::class)->middleware(['auth', 'isAdmin']);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
