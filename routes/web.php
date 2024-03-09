@@ -29,6 +29,7 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard')->middleware(['auth', 'isAdmin']);
     Route::resource('kuis', KuisController::class)->middleware(['auth', 'isAdmin']);
     Route::resource('pertanyaan', PertanyaanController::class)->middleware(['auth', 'isAdmin']);
+    Route::get('/pengguna', [DashboardController::class, 'pengguna'])->name('dashboard.pengguna')->middleware(['auth', 'isAdmin']);
 });
 
 
@@ -36,4 +37,5 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/mulai/{idKuis}', [HomeController::class, 'mulai'])->name('kuis.mulai');
 Route::get('/mulai/{idKuis}/pertanyaan/{idPertanyaan}', [HomeController::class, 'pertanyaan'])->name('kuis.pertanyaan');
-Route::get('/mulai/{idKuis}/pertanyaan/{idPertanyaan}', [HomeController::class, 'store'])->name('kuis.store');
+Route::post('/mulai/{idKuis}/pertanyaan/{idPertanyaan}', [HomeController::class, 'store'])->name('kuis.store');
+Route::get('/mulai/{idKuis}/berhasil', [HomeController::class, 'berhasil'])->name('kuis.berhasil');

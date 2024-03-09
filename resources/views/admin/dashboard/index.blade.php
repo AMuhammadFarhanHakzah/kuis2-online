@@ -6,7 +6,7 @@
 
             <div class="row">
                 <div class="col-md-3">
-                    <a href="admin-list-kuis.html" class="card">
+                    <a href="{{route('kuis.index')}}" class="card">
                         <div class="card-body">
                             <i class='bx bx-brain fs-1 text-primary'></i>
                             <h5 class="text-dark mt-2">12 Kuis</h5>
@@ -14,7 +14,7 @@
                     </a>
                 </div>
                 <div class="col-md-3">
-                    <a href="admin-list-pengguna.html" class="card">
+                    <a href="{{route('dashboard.pengguna')}}" class="card">
                         <div class="card-body">
                             <i class='bx bx-user fs-1 text-primary'></i>
                             <h5 class="text-dark mt-2">30 Pengguna</h5>

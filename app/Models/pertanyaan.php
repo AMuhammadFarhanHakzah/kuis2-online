@@ -16,4 +16,8 @@ class pertanyaan extends Model
         return $this->belongsTo(tambahKuis::class, 'id_tambahKuis');
     }
 
+    public function jawaban() {
+        return $this->hasMany(jawaban::class, 'id_pertanyaan', 'id_pertanyaan');
+    }
+
 }

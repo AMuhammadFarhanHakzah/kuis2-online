@@ -19,7 +19,7 @@
                             <div class="mb-3">
                                 <div class="form-check">
                                     <input class="form-check-input border-secondary" type="radio" name="answer"
-                                        id="answer_a" value="A">
+                                        id="a" value="a">
                                     <label class="form-check-label" for="answer_a">
                                         {{$pertanyaan->answer_a}}
                                     </label>
@@ -28,7 +28,7 @@
                             <div class="mb-3">
                                 <div class="form-check">
                                     <input class="form-check-input border-secondary" type="radio" name="answer"
-                                        id="answer_b" value="B">
+                                        id="b" value="b">
                                     <label class="form-check-label" for="answer_b">
                                         {{$pertanyaan->answer_b}}
                                     </label>
@@ -37,7 +37,7 @@
                             <div class="mb-3">
                                 <div class="form-check">
                                     <input class="form-check-input border-secondary" type="radio" name="answer"
-                                        id="answer_c" value="C">
+                                        id="c" value="c">
                                     <label class="form-check-label" for="answer_c">
                                         {{$pertanyaan->answer_c}}
                                     </label>
@@ -46,7 +46,7 @@
                             <div class="mb-5">
                                 <div class="form-check">
                                     <input class="form-check-input border-secondary" type="radio" name="answer"
-                                        id="answer_d" value="D">
+                                        id="d" value="d">
                                     <label class="form-check-label" for="answer_d">
                                         {{$pertanyaan->answer_d}}
                                     </label>

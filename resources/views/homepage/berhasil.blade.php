@@ -9,11 +9,13 @@
                             <i class="bx bx-check"></i>
                         </span>
 
-                        <h3 class="text-center mt-5 mb-3"> {{$mulaiKuis->quiz_name}} </h3>
+                        <h3 class="text-center mt-5 mb-3">Kuis berhasil diselesaikan</h3>
                         <h5 class="text-secondary text-center mb-5">
-                            {{$mulaiKuis->description}}
+                            {{$score}} / {{count($kuis->pertanyaan)}}
                         </h5>
-                        <a href="{{route('kuis.pertanyaan', [$mulaiKuis->id_tambahKuis, $mulaiKuis->pertanyaan->first()->id_pertanyaan])}}" class="btn btn-primary mx-auto" style="width: max-content;"> Mulai Kuis </a>
+
+                        <a href="/" class="btn btn-primary mx-auto" style="width: max-content;">Kembali ke Halaman
+                            Utama</a>
                     </div>
                 </div>
             </div>
